@@ -55,6 +55,20 @@
                 color: #bfddf8;
                 background: transparent;
                 border: none;
+                position: relative;
+                &:hover{
+                    &::after{
+                        content: 'settings';
+                        display: block;
+                        width: 100px;
+                        color: #9090908a;
+                        transition: all 1s ease !important;
+                        position: absolute;
+                        top: -35px;
+                        right: -40px;
+                        
+                    }
+                }
             }
             
         }
