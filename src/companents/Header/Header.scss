@@ -1,0 +1,62 @@
+.Header{
+    width: 100%;
+    height: 120px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,23,87,1) 0%, rgba(8,5,91,1) 0%, rgba(6,6,84,1) 50%, rgba(4,6,25,1) 100%);
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            display: flex;
+            height: 100px;
+            align-items: center;
+            gap: 15px;
+            a{
+                text-decoration: none;
+        
+          }
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            h2{
+                color: #bfddf8;
+            }
+        }
+        .nav-list{
+            width: 70%;
+            display: flex;
+            justify-content: space-around;
+            li{
+                &:hover{
+                   button{
+                    color: #909090;
+                    transition: all 0.5s ease;
+
+                }
+                    a{
+                        color: #909090 !important; 
+                    }
+                    transition: all 0.5s ease;
+                    text-shadow:  0 0 15px rgb(222, 211, 211);
+                    
+                }
+                a{
+                    color: #bfddf8;
+                    font-size: 20px;
+                    
+                }
+            }
+            .btn-all-s{
+                font-size: 20px;
+                color: #bfddf8;
+                background: transparent;
+                border: none;
+            }
+            
+        }
+    }
+}
