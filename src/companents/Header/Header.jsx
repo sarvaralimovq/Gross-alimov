@@ -1,20 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Header.scss'
 import Navlogo from '../../img/logo-nav.png'
 import { Link } from 'react-router-dom'
 
+
+  
+
 function Header() {
+    const [vWidth, setVWidth] = useState(window.innerWidth);
+
+useEffect(() => {
+    const handleResize = () => setVWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className='Header'>
         <div className="container">
-            <nav>
+            <nav  >
                 <div className="logo">
                     <Link className='logo'>
                     <img src={Navlogo} alt="Gross logo" />
                     <h2>Gross</h2>
                     </Link>
                 </div>
-                <ul className='nav-list'>
+                <button className={vWidth <= 600 ? "btn  dropdown-toggle" : null}  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i className="bi bi-list btn-nav-list"></i>
+                </button>
+
+                <ul  className={vWidth <= 600 ? " dropdown-menu  " : "nav-list"} aria-labelledby="dropdownMenuButton1">
                     <li>
                         <Link to={'/'}>Home</Link>
                     </li>

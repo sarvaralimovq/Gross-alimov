@@ -74,3 +74,29 @@
         }
     }
 }
+
+// @media (max-width: 600px) {
+
+// }
+.dropdown-toggle{
+    background-color: transparent;
+    border: none;
+    &::after{
+        display: none;
+    }
+    
+    
+.bi-list{
+    font-size: 35px;
+    color: #fafbfd !important;
+    &:hover{
+        color: #797878 !important;
+        transition: all 0.5s ease;
+    }
+    &:focus {
+       background: blue;
+    }
+}    
+}
+
+
