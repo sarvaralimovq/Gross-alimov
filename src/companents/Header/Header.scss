@@ -99,4 +99,63 @@
 }    
 }
 
+.nav-list-li{
+    width: 100%;
+    height: 100vh;
+    transition: all 1s ease;
+    background:rgba(90,90,90,0.5);
+         
+        li{
+            transition: all 30s ease;
+            padding-left: 10px;
+            &::after{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: #909090;
+                padding-top: 5px;
+            }
+            &:hover{
+               button{
+                color: #909090;
+                transition: all 0.5s ease;
+
+            }
+                a{
+                    color: #909090 !important; 
+                }
+                transition: all 0.5s ease;
+                text-shadow:  0 0 15px rgb(222, 211, 211);
+                
+            }
+            a{
+                color: #bfddf8;
+                font-size: 20px;
+                
+            }
+        }
+        .btn-all-s{
+            font-size: 20px;
+            color: #bfddf8;
+            background: transparent;
+            border: none;
+            position: relative;
+            &:hover{
+                &::after{
+                    content: 'Settings';
+                    display: block;
+                    width: 100px;
+                    color: #9090908a;
+                    transition: all 1s ease !important;
+                    position: absolute;
+                    top: 0px;
+                    right: -85px;
+                    
+                }
+            }
+        }
+        
+    
+}
 

@@ -8,7 +8,7 @@
 
 .swiper {
     width: 100%;
-    height: 1000px !important;
+    height: 1130px !important;
   }
   .swiper-initialized{
     position: relative !important;
@@ -33,31 +33,42 @@
   }
 .swiper-button-prev{
 width: 30% !important;
-height: 52% !important;
+height: 120% !important;
 position: absolute !important;
 top: 0 !important;
 margin-left: -10px;
+
+
 &::after{
-  display: none !important;
+  // display: none !important;
+color: #fff;
 }
 }
 .swiper-button-next{
  width: 30% !important;
- height: 52% !important;
+ height: 120% !important;
  position: absolute !important;
  top: 0 !important;
  margin-right: -10px;
+
  &::after{
-  display: none !important;
+  // display: none !important;
+  width: 25px;
+  height: 60px;
+color: #fff;
+// box-shadow: 1px 1px 1px 1px #911313;
+// border-radius: 10px;
+
+
 }
 }
 .swiper-slide{
   background-color: transparent;
-  border: 1px double red;
+  // border: 1px double red;
 }
 .swiper-pagination{
     .swiper-pagination-bullet{
-      background: red !important;
+      background: greenyellow !important;
     
   }
 }

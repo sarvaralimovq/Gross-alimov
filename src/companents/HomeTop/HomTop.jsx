@@ -10,7 +10,8 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
+import grossFOTO1 from '../../img/grossFoto1.png'
+import grossFOTO2 from '../../img/grossFoto2.jpg'
 
 
 
@@ -36,11 +37,11 @@ function HomTop() {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
                 >     
+                <SwiperSlide><img src={grossFOTO1} alt="Gross-img" /></SwiperSlide>
+                <SwiperSlide><img src={grossFOTO2} alt="Gross-img" /></SwiperSlide>
                 <SwiperSlide><img src="" alt="Gross-img" /></SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
+                <SwiperSlide><img src="" alt="Gross-img" /></SwiperSlide>
+                
                 
                 <Swiper></Swiper>
             </Swiper>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Header.scss'
 import Navlogo from '../../img/logo-nav.png'
 import { Link } from 'react-router-dom'
-
+import { Squash as Hamburger } from 'hamburger-react'
 
   
 
@@ -27,28 +27,30 @@ useEffect(() => {
                     <h2>Gross</h2>
                     </Link>
                 </div>
-                <button className={vWidth <= 600 ? "btn  dropdown-toggle" : null}  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i className="bi bi-list btn-nav-list"></i>
+                <button  className={vWidth <= 600 ? "btn  dropdown-toggle" : 'none'}  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i  className="bi bi-list btn-nav-list"></i>
                 </button>
+                     
 
-                <ul  className={vWidth <= 600 ? " dropdown-menu  " : "nav-list"} aria-labelledby="dropdownMenuButton1">
+                <ul  className={vWidth <= 600 ? " dropdown-menu nav-list-li  " : "nav-list"} aria-labelledby="dropdownMenuButton1">
                     <li>
-                        <Link to={'/'}>Home</Link>
+                        <Link  to={'/'}>Home</Link>
                     </li>
                     <li>
-                        <Link to={'/about'}>About</Link>
+                        <Link  to={'/about'}>About</Link>
                     </li>
                     <li>
-                        <Link to={'/loc'}>Location</Link>
+                        <Link  to={'/loc'}>Location</Link>
                     </li>
                     <li>
-                        <Link to={'/news'}>News</Link>
+                        <Link  to={'/news'}>News</Link>
                     </li>
                     <li>
-                        <Link to={'/contact'}>Contact</Link>
+                        <Link  to={'/contact'}>Contact</Link>
                     </li>
                    <li>
                         <button className='btn-all-s'><i class="bi bi-gear"></i></button>
+
                    </li>
                 </ul>
             </nav>

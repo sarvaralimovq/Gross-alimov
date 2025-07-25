@@ -4,7 +4,8 @@ import HomTop from '../../companents/HomeTop/HomTop'
 function Home() {
   return (
     <div className='Home'>
-        <HomTop/>
+      
+      <HomTop/>
     </div>
   )
 }
