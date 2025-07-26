@@ -95,3 +95,140 @@
     }
   }
 }
+.dropdown-toggle{
+  &::after{
+    display: none;
+  }
+}
+
+.none{
+  display: none;
+}
+.list-burger-button{
+  button{
+    border: none;
+    background: transparent;
+    i{
+      font-size: 25px;
+    }
+    &:hover{
+      background-color: rgb(6, 12, 87) !important;
+    }
+    
+    &:focus{
+      background-color: rgb(5, 12, 103) !important;
+    }
+  }
+}
+.list-burger{
+  text-align: center;
+
+  a{
+    color: rgb(28, 27, 27);
+  }
+  button{
+    border: none;
+    
+  }
+}
+// Основной список
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+
+  li {
+    position: relative;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+
+    &.active a {
+      color: #007bff;
+    }
+  }
+}
+
+// Кнопка настроек
+.btn-all-s {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
+// Псевдо-индикатор (навигационная каретка)
+.nav-car {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 40px;
+  background-color: #007bff;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+// Мобильное меню (бургер)
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  list-style: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 100;
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  li {
+    text-align: left;
+    &:hover{
+      color: #909090 !important;  
+    }
+
+    a {
+      font-size: 1.1rem;
+      color: #222;
+    }
+  }
+}
+
+// Общие стили для адаптива
+.list-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 6px;
+}
+

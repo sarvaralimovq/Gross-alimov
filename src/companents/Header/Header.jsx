@@ -61,7 +61,8 @@ function Header() {
               <h2>Gross</h2>
             </Link>
           </div>
-          <ul className={vWidth <= 600 ? 'dropdown-menu nav-list-li' : 'nav-list'}>
+          
+          <ul className={vWidth <= 600 ? 'none' : ' nav-list'}>
             {menuItems.map((item, i) => (
               <li
                 key={item.id}
@@ -71,6 +72,7 @@ function Header() {
                 <Link onClick={() => handleClick(item.id)} to={item.to}>{item.label}</Link>
               </li>
             ))}
+          
             <li>
               <button className='btn-all-s'>
                 <i className='bi bi-gear'></i>
@@ -78,6 +80,30 @@ function Header() {
             </li>
             <div ref={indicatorRef} className='nav-car'></div>
           </ul>
+            <div className={vWidth <= 600 ? ' btn-group list-burger-button' : 'none'} role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i className="bi bi-list"></i>
+        </button>
+        
+          <ul className={vWidth <= 600 ? 'dropdown-menu list-burger' : ' nav-list'}>
+            {menuItems.map((item, i) => (
+              <li
+                key={item.id}
+                ref={(el) => (itemRefs.current[i] = el)}
+                className={active === item.id ? 'active' : ''}
+              >
+                <Link onClick={() => handleClick(item.id)} to={item.to}>{item.label}</Link>
+              </li>
+            ))}
+           
+            <li>
+              <button className='btn-all-s'>
+                <i className='bi bi-gear'></i>
+              </button>
+            </li>
+            <div ref={indicatorRef} className='nav-car'></div>
+          </ul>
+          </div>
         </nav>
       </div>
     </div>
