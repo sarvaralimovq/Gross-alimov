@@ -20,7 +20,7 @@ function HomTop() {
   return (
     <div className='home-top'>
         <div className="container">
-            <div className="swiper">
+            <div className="swiper ">
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -35,7 +35,7 @@ function HomTop() {
 
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper scroll-up"
                 >     
                 <SwiperSlide><img src={grossFOTO1} alt="Gross-img" /></SwiperSlide>
                 <SwiperSlide><img src={grossFOTO2} alt="Gross-img" /></SwiperSlide>

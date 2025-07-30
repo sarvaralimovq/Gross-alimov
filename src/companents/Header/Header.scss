@@ -13,11 +13,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
-
-      a {
-        text-decoration: none;
-      }
-
+      text-decoration: none;
       img {
         width: 100px;
         height: 100px;
@@ -29,13 +25,22 @@
       }
     }
 
+    .burger-toggle {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      z-index: 100;
+    }
+
     .nav-list {
-      width: 70%;
+      list-style: none;
       display: flex;
-      justify-content: space-around;
+      align-items: center;
       position: relative;
 
       li {
+        margin: 0 10px;
         position: relative;
 
         a {
@@ -49,22 +54,21 @@
             transition: all 0.5s ease;
           }
         }
+
+        &.active a {
+          color: #fff;
+          font-weight: bold;
+        }
       }
 
       .btn-all-s {
-        font-size: 20px;
-        color: #bfddf8;
-        background: transparent;
+        background: none;
         border: none;
-        position: relative;
+        color: #bfddf8;
+        font-size: 20px;
 
-        &:hover::after {
-          content: 'settings';
-          position: absolute;
-          top: -35px;
-          right: -40px;
-          color: #9090908a;
-          display: block;
+        &:hover {
+          color: #909090;
         }
       }
 
@@ -80,7 +84,6 @@
         pointer-events: none;
         z-index: 9;
         width: 60px;
-        
       }
 
       .drive {
@@ -88,147 +91,46 @@
       }
 
       @keyframes bounceCar {
-        0%   { transform: translateY(0); }
-        50%  { transform: translateY(-8px); }
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
         100% { transform: translateY(0); }
       }
     }
-  }
-}
-.dropdown-toggle{
-  &::after{
-    display: none;
-  }
-}
 
-.none{
-  display: none;
-}
-.list-burger-button{
-  button{
-    border: none;
-    background: transparent;
-    i{
-      font-size: 25px;
-    }
-    &:hover{
-      background-color: rgb(6, 12, 87) !important;
-    }
-    
-    &:focus{
-      background-color: rgb(5, 12, 103) !important;
-    }
-  }
-}
-.list-burger{
-  text-align: center;
+    .nav-list.mobile {
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 99;
+      
 
-  a{
-    color: rgb(28, 27, 27);
-  }
-  button{
-    border: none;
-    
-  }
-}
-// Основной список
-.nav-list {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  align-items: center;
-  position: relative;
+      li a {
+        color: #222;
+      }
 
-  li {
-    position: relative;
+      &.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-    a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #007bff;
+      .nav-car {
+        top: auto;
+        bottom: -20px;
+        display: none;
       }
     }
 
-    &.active a {
-      color: #007bff;
+    .nav-list.desktop {
+      justify-content: space-around;
     }
   }
 }
-
-// Кнопка настроек
-.btn-all-s {
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  color: #444;
-  cursor: pointer;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #007bff;
-  }
-}
-
-// Псевдо-индикатор (навигационная каретка)
-.nav-car {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  height: 2px;
-  width: 40px;
-  background-color: #007bff;
-  transition: all 0.3s ease;
-  border-radius: 2px;
-}
-
-// Мобильное меню (бургер)
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem 1rem;
-  list-style: none;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-20px);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s ease;
-  z-index: 100;
-
-  &.show {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  li {
-    text-align: left;
-    &:hover{
-      color: #909090 !important;  
-    }
-
-    a {
-      font-size: 1.1rem;
-      color: #222;
-    }
-  }
-}
-
-// Общие стили для адаптива
-.list-burger {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 6px;
-}
-

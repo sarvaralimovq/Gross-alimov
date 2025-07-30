@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Header.scss';
 import Navlogo from '../../img/logo-nav.png';
-import headerCar from '../../img/header-car2.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
   const [vWidth, setVWidth] = useState(window.innerWidth);
   const [active, setActive] = useState(1);
-  const indicatorRef = useRef(null);
-  const itemRefs = useRef([]);
+  const [burgerOpen, setBurgerOpen] = useState(false);
   const [direction, setDirection] = useState('forward');
   const [prevIndex, setPrevIndex] = useState(1);
+
+  const indicatorRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  const location = useLocation(); // 👈 добавлено
 
   useEffect(() => {
     const handleResize = () => setVWidth(window.innerWidth);
@@ -31,7 +34,16 @@ function Header() {
         indicatorRef.current?.classList.remove('drive');
       }, 500);
     }
-  }, [active, direction, vWidth]);
+  }, [active, direction, vWidth, burgerOpen]);
+
+  useEffect(() => {
+    const match = menuItems.find(item => item.to === location.pathname);
+    if (match && match.id !== active) {
+      setDirection(match.id < active ? 'backward' : 'forward');
+      setPrevIndex(match.id);
+      setActive(match.id);
+    }
+  }, [location.pathname]); // 👈 добавлено
 
   const handleClick = (index) => {
     if (index < prevIndex) {
@@ -41,6 +53,7 @@ function Header() {
     }
     setPrevIndex(index);
     setActive(index);
+    if (vWidth <= 600) setBurgerOpen(false);
   };
 
   const menuItems = [
@@ -55,14 +68,14 @@ function Header() {
     <div className='Header'>
       <div className='container'>
         <nav>
-          <div className='logo'>
+          <div className='logo scroll-left'>
             <Link className='logo' to='/'>
               <img src={Navlogo} alt='Gross logo' />
               <h2>Gross</h2>
             </Link>
           </div>
-          
-          <ul className={vWidth <= 600 ? 'none' : ' nav-list'}>
+
+          <ul className={`nav-list ${vWidth <= 600 ? (burgerOpen ? 'mobile open scroll-right' : 'mobile scroll-right') : 'desktop scroll-right'}`}>
             {menuItems.map((item, i) => (
               <li
                 key={item.id}
@@ -72,7 +85,6 @@ function Header() {
                 <Link onClick={() => handleClick(item.id)} to={item.to}>{item.label}</Link>
               </li>
             ))}
-          
             <li>
               <button className='btn-all-s'>
                 <i className='bi bi-gear'></i>
@@ -80,30 +92,12 @@ function Header() {
             </li>
             <div ref={indicatorRef} className='nav-car'></div>
           </ul>
-            <div className={vWidth <= 600 ? ' btn-group list-burger-button' : 'none'} role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i className="bi bi-list"></i>
-        </button>
-        
-          <ul className={vWidth <= 600 ? 'dropdown-menu list-burger' : ' nav-list'}>
-            {menuItems.map((item, i) => (
-              <li
-                key={item.id}
-                ref={(el) => (itemRefs.current[i] = el)}
-                className={active === item.id ? 'active' : ''}
-              >
-                <Link onClick={() => handleClick(item.id)} to={item.to}>{item.label}</Link>
-              </li>
-            ))}
-           
-            <li>
-              <button className='btn-all-s'>
-                <i className='bi bi-gear'></i>
-              </button>
-            </li>
-            <div ref={indicatorRef} className='nav-car'></div>
-          </ul>
-          </div>
+
+          {vWidth <= 600 && (
+            <button className='burger-toggle' onClick={() => setBurgerOpen(!burgerOpen)}>
+              <i className='bi bi-list'></i>
+            </button>
+          )}
         </nav>
       </div>
     </div>
